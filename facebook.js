@@ -1,35 +1,54 @@
 var database = [
   {
   username:'Niels',
-  password:'p@ssword01'
-}
+  password:'password01'
+},
+{
+username:'Alfred',
+password:'password02'
+},
+{
+username:'Penny',
+password:'password03'
+},
+{
+username:'Bertrand',
+password:'password04'
+},
 ]
 var newsFeed = [
   {
-    username:'Niels',
-    timeline:'blablabla'
+    username:'Penny',
+    timeline:'dqzdjqdjqzpodjqz'
   },
   {
-    username:'Freddy',
+    username:'Alfred',
     timeline:'bipzfjqôfqkfqf'
   },
   {
-    username:'Bob',
+    username:'Wilma',
     timeline:'kfjqpofjqofjqzof'
   }
 ]
 
-function signIn(){
-  var userName = prompt('please enter your username')
-  var userPass = prompt('please enter your password')
-
-  if (userName === database[0].username &&
-   userPass === database[0].password){
-     console.log(newsFeed)
-   }
- else{
-   console.log('sorry your credentials are wrong, try again.')
-   signIn()
-     }
+//function isUserValid()
+function isUserValid(username,password){
+  for(var i=0; i < database.length; i++){
+    if (database[i].username === username &&
+      database[i].password === password) {
+        return true;
+    }
+  }
+  return false;
 }
-signIn()
+//function signIn()
+function signIn(username,password){
+  if (isUserValid(username,password)) {
+    console.log(newsFeed)
+  } else {
+    alert('sorry wrong username and password')
+  }
+}
+  var userNamePrompt = prompt('enter your username')
+  var passwordPrompt = prompt('enter your password')
+  signIn(userNamePrompt,passwordPrompt)
